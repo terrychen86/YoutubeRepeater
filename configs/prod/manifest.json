@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Repeater",
+  "description": "Enable repeat button on YouTube!",
+  "version": "0.0.1",
+  "permissions": ["*://www.youtube.com/"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["app.js"],
+      "css": ["app.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

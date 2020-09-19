@@ -1,0 +1,53 @@
+{
+  "name": "youtube-repeater",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:terrychen86/youtube-repeater.git",
+  "author": "Terry Chen <yenhsuan.terry@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn clean && yarn webpack --config ./webpack.dev.config.js --mode development --watch",
+    "build": "yarn clean && yarn validate && yarn webpack --config ./webpack.prod.config.js --mode production",
+    "clean": "rm -rf dist",
+    "validate": "yarn eslint ./src/**/*.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn validate && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "yarn prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/chrome": "^0.0.123",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "copy-webpack-plugin": "^6.1.1",
+    "css-loader": "^4.3.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fork-ts-checker-webpack-plugin": "^5.2.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
