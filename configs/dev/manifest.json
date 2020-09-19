@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Repeater (Dev)",
+  "description": "Enable repeat button on YouTube! (Dev)",
+  "version": "0.0.1",
+  "permissions": ["*://*.youtube.com/"],
+  "background": {
+    "scripts": [
+      "hot-reload.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["app.js"],
+      "css": ["app.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
